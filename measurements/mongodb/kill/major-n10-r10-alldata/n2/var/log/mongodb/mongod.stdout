@@ -1,0 +1,5 @@
+2024-12-02 22:42:31 Jepsen starting  /usr/bin/mongod --config /etc/mongod.conf
+2024-12-02 22:42:58 Jepsen starting  /usr/bin/mongod --config /etc/mongod.conf
+2024-12-02 22:43:18 Jepsen starting  /usr/bin/mongod --config /etc/mongod.conf
+2024-12-02 22:43:38 Jepsen starting  /usr/bin/mongod --config /etc/mongod.conf
+/usr/bin/mongod already running.

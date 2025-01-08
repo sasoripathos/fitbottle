@@ -1,0 +1,14 @@
+G-single-realtime #0
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 72 []]], :time 316172132529, :process 553, :index 13813}
+  T2 = {:type :info, :f :txn, :value [[:append 72 6] [:append 72 7] [:append 67 121] [:r 70 nil]], :time 312502307408, :process 425, :error :timeout, :index 13749}
+  T3 = {:type :info, :f :txn, :value [[:r 72 nil] [:append 72 8] [:r 63 nil] [:append 72 9]], :time 312517406108, :process 420, :error :timeout, :index 13751}
+  T4 = {:type :ok, :f :txn, :value [[:append 72 48] [:r 72 [6 7 8 9 48]] [:append 72 49] [:append 72 50]], :time 316133008530, :process 445, :index 13803}
+  T5 = {:type :ok, :f :txn, :value [[:append 73 19] [:append 69 62]], :time 316163503139, :process 445, :index 13805}
+
+Then:
+  - T1 < T2, because T1 observed the initial (nil) state of 72, which T2 created by appending 6.
+  - T2 < T3, because T3 appended 8 after T2 appended 7 to 72.
+  - T3 < T4, because T4 appended 48 after T3 appended 9 to 72.
+  - T4 < T5, because T4 completed at index 13803, 0.000 seconds before the invocation of T5, at index 13804.
+  - However, T5 < T1, because T5 completed at index 13805, 0.008 seconds before the invocation of T1, at index 13812: a contradiction!

@@ -1,0 +1,206 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :clock {:valid? true},
+ :stats {:valid? true,
+         :count 3100,
+         :ok-count 79,
+         :fail-count 2926,
+         :info-count 95,
+         :by-f {:txn {:valid? true,
+                      :count 3100,
+                      :ok-count 79,
+                      :fail-count 2926,
+                      :info-count 95}}},
+ :exceptions {:valid? true,
+              :exceptions ({:count 1,
+                            :class com.mongodb.MongoSocketReadException,
+                            :example {:type :info,
+                                      :f :txn,
+                                      :value [[:append 12 113]],
+                                      :time 74242473473,
+                                      :process 175,
+                                      :exception {:via [{:type com.mongodb.MongoSocketReadException,
+                                                         :message "Prematurely reached end of stream",
+                                                         :at [com.mongodb.internal.connection.SocketStream
+                                                              read
+                                                              "SocketStream.java"
+                                                              112]}],
+                                                  :trace [[com.mongodb.internal.connection.SocketStream
+                                                           read
+                                                           "SocketStream.java"
+                                                           112]
+                                                          [com.mongodb.internal.connection.SocketStream
+                                                           read
+                                                           "SocketStream.java"
+                                                           135]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveResponseBuffers
+                                                           "InternalStreamConnection.java"
+                                                           713]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveMessageWithAdditionalTimeout
+                                                           "InternalStreamConnection.java"
+                                                           571]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveCommandMessageResponse
+                                                           "InternalStreamConnection.java"
+                                                           410]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           sendAndReceive
+                                                           "InternalStreamConnection.java"
+                                                           337]
+                                                          [com.mongodb.internal.connection.UsageTrackingInternalConnection
+                                                           sendAndReceive
+                                                           "UsageTrackingInternalConnection.java"
+                                                           116]
+                                                          [com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection
+                                                           sendAndReceive
+                                                           "DefaultConnectionPool.java"
+                                                           644]
+                                                          [com.mongodb.internal.connection.CommandProtocolImpl
+                                                           execute
+                                                           "CommandProtocolImpl.java"
+                                                           71]
+                                                          [com.mongodb.internal.connection.DefaultServer$DefaultServerProtocolExecutor
+                                                           execute
+                                                           "DefaultServer.java"
+                                                           240]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           executeProtocol
+                                                           "DefaultServerConnection.java"
+                                                           226]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           command
+                                                           "DefaultServerConnection.java"
+                                                           126]
+                                                          [com.mongodb.internal.connection.DefaultServer$OperationCountTrackingConnection
+                                                           command
+                                                           "DefaultServer.java"
+                                                           354]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           executeCommand
+                                                           "MixedBulkWriteOperation.java"
+                                                           517]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           executeBulkWriteBatch
+                                                           "MixedBulkWriteOperation.java"
+                                                           379]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           lambda$execute$2
+                                                           "MixedBulkWriteOperation.java"
+                                                           300]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           lambda$withSourceAndConnection$2
+                                                           "OperationHelper.java"
+                                                           575]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSuppliedResource
+                                                           "OperationHelper.java"
+                                                           600]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           lambda$withSourceAndConnection$3
+                                                           "OperationHelper.java"
+                                                           574]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSuppliedResource
+                                                           "OperationHelper.java"
+                                                           600]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSourceAndConnection
+                                                           "OperationHelper.java"
+                                                           573]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           lambda$execute$3
+                                                           "MixedBulkWriteOperation.java"
+                                                           272]
+                                                          [com.mongodb.internal.async.function.RetryingSyncSupplier
+                                                           get
+                                                           "RetryingSyncSupplier.java"
+                                                           65]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           execute
+                                                           "MixedBulkWriteOperation.java"
+                                                           308]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           execute
+                                                           "MixedBulkWriteOperation.java"
+                                                           85]
+                                                          [com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor
+                                                           execute
+                                                           "MongoClientDelegate.java"
+                                                           212]
+                                                          [com.mongodb.client.internal.MongoCollectionImpl
+                                                           executeSingleWriteRequest
+                                                           "MongoCollectionImpl.java"
+                                                           1010]
+                                                          [com.mongodb.client.internal.MongoCollectionImpl
+                                                           executeUpdate
+                                                           "MongoCollectionImpl.java"
+                                                           994]
+                                                          [com.mongodb.client.internal.MongoCollectionImpl
+                                                           updateOne
+                                                           "MongoCollectionImpl.java"
+                                                           579]
+                                                          [jdk.internal.reflect.GeneratedMethodAccessor22
+                                                           invoke
+                                                           nil
+                                                           -1]
+                                                          [jdk.internal.reflect.DelegatingMethodAccessorImpl
+                                                           invoke
+                                                           "DelegatingMethodAccessorImpl.java"
+                                                           43]
+                                                          [java.lang.reflect.Method
+                                                           invoke
+                                                           "Method.java"
+                                                           566]
+                                                          [clojure.lang.Reflector
+                                                           invokeMatchingMethod
+                                                           "Reflector.java"
+                                                           167]
+                                                          [clojure.lang.Reflector
+                                                           invokeInstanceMethod
+                                                           "Reflector.java"
+                                                           102]
+                                                          [jepsen.mongodb.list_append$apply_mop_BANG_
+                                                           invokeStatic
+                                                           "list_append.clj"
+                                                           69]
+                                                          [jepsen.mongodb.list_append$apply_mop_BANG_
+                                                           invoke
+                                                           "list_append.clj"
+                                                           51]
+                                                          [jepsen.mongodb.list_append.Client$fn__2245
+                                                           invoke
+                                                           "list_append.clj"
+                                                           122]
+                                                          [clojure.core$binding_conveyor_fn$fn__5739
+                                                           invoke
+                                                           "core.clj"
+                                                           2030]
+                                                          [clojure.lang.AFn
+                                                           call
+                                                           "AFn.java"
+                                                           18]
+                                                          [java.util.concurrent.FutureTask
+                                                           run
+                                                           "FutureTask.java"
+                                                           264]
+                                                          [java.util.concurrent.ThreadPoolExecutor
+                                                           runWorker
+                                                           "ThreadPoolExecutor.java"
+                                                           1128]
+                                                          [java.util.concurrent.ThreadPoolExecutor$Worker
+                                                           run
+                                                           "ThreadPoolExecutor.java"
+                                                           628]
+                                                          [java.lang.Thread
+                                                           run
+                                                           "Thread.java"
+                                                           829]],
+                                                  :cause "Prematurely reached end of stream"},
+                                      :error "indeterminate: Prematurely reached end of stream",
+                                      :index 1299}})},
+ :workload {:valid? true},
+ :assert {:valid? true, :count 0, :matches ()},
+ :valid? true}
