@@ -1,0 +1,52 @@
+G-single-realtime #0
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 67 [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 20 21 22 23 24 25 26 27 28 29 30 32 31 33 34 35 36 37 38 39 41 43 44 45 40 47 51 52 53 54 55 50 56 57 58 59 60 61 62 63 65 64 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 98 96 97 99 100 101 102 103 104 105 107 108 109 110 111 106 112 113 114 115 118 119 120 121 122 123]]], :time 152967465395, :process 453, :index 13477}
+  T2 = {:type :ok, :f :txn, :value [[:append 66 118] [:append 67 124]], :time 152945975161, :process 200, :index 13472}
+
+Then:
+  - T1 < T2, because T1 did not observe T2's append of 124 to 67.
+  - However, T2 < T1, because T2 completed at index 13472, 0.000 seconds before the invocation of T1, at index 13473: a contradiction!
+
+
+G-single-realtime #1
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 67 [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 20 21 22 23 24 25 26 27 28 29 30 32 31 33 34 35 36 37 38 39 41 43 44 45 40 47 51 52 53 54 55 50 56 57 58 59 60 61 62 63 65 64 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 98 96 97 99 100 101 102 103 104 105 107 108 109 110 111 106]]], :time 152810293353, :process 458, :index 13439}
+  T2 = {:type :ok, :f :txn, :value [[:append 67 112] [:append 66 109] [:append 67 113] [:r 67 [2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 20 21 22 23 24 25 26 27 28 29 30 32 31 33 34 35 36 37 38 39 41 43 44 45 40 47 51 52 53 54 55 50 56 57 58 59 60 61 62 63 65 64 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 98 96 97 99 100 101 102 103 104 105 107 108 109 110 111 106 112 113]]], :time 152779733297, :process 200, :index 13431}
+  T3 = {:type :ok, :f :txn, :value [[:r 4 [1 2 3 4 5 6 9 10 11 13 14 15 17 18 19 21 22 23 24 25 26 27 28 30 31 32 33 34 35 36 38 39 40 41 42 43 44 45 46 48 49 50 51 53 54 57 58 59 60 61 62 63 64 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 96 97 98 99 100 101 102 103 104 105 106 108 110 111 112 113 114 115 116 117 118 119 120 121]]], :time 152785433536, :process 220, :index 13435}
+
+Then:
+  - T1 < T2, because T1 did not observe T2's append of 112 to 67.
+  - T2 < T3, because T2 completed at index 13431, 0.004 seconds before the invocation of T3, at index 13434.
+  - However, T3 < T1, because T3 completed at index 13435, 0.005 seconds before the invocation of T1, at index 13438: a contradiction!
+
+
+G-single-realtime #2
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 123 [1 2 4 3 5 6 7 8 9 10 11 12 13]]], :time 265654061438, :process 316, :index 24753}
+  T2 = {:type :ok, :f :txn, :value [[:append 123 14] [:r 123 [1 2 4 3 5 6 7 8 9 10 11 12 13 14]]], :time 265650640867, :process 415, :index 24749}
+
+Then:
+  - T1 < T2, because T1 did not observe T2's append of 14 to 123.
+  - However, T2 < T1, because T2 completed at index 24749, 0.003 seconds before the invocation of T1, at index 24752: a contradiction!
+
+
+G-single-realtime #3
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 126 [1 3 4 6 7 5 2 11 12 13 14 15 16 17 18 19 20 22 21 23 24 26 25 27 28 29 30 31 33 34 35 36 37 38 32 39 40 42 41 43 44 45 46 49 50 51 47 48 52 53]]], :time 269052011120, :process 808, :index 25327}
+  T2 = {:type :ok, :f :txn, :value [[:append 126 54] [:append 117 78] [:append 125 24] [:r 126 [1 3 4 6 7 5 2 11 12 13 14 15 16 17 18 19 20 22 21 23 24 26 25 27 28 29 30 31 33 34 35 36 37 38 32 39 40 42 41 43 44 45 46 49 50 51 47 48 52 53 54]]], :time 269032096110, :process 415, :index 25319}
+
+Then:
+  - T1 < T2, because T1 did not observe T2's append of 54 to 126.
+  - However, T2 < T1, because T2 completed at index 25319, 0.011 seconds before the invocation of T1, at index 25324: a contradiction!
+
+
+G-single-realtime #4
+Let:
+  T1 = {:type :ok, :f :txn, :value [[:r 159 [1 2 3 4 5 6 7 8 10 9 11 12 13 14 15 16 17 18 19 20 25 26 27 28 29 30 31 32 33 34 35 36 37 39 40 38 42 43 45 44 46 47 48 49 50 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 69 70 68 71 72 74 76 75 77 79 80 81 82 84 83 85 86 87 88 89 90 91 92 93 94 96 97 98 95 99 100 101 103 104 106 105 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121]]], :time 323771903324, :process 455, :index 32831}
+  T2 = {:type :ok, :f :txn, :value [[:r 158 [1 2 3 4 5 6 7 8 10 11 12 14 16 17 18 15 20 21 23 24 25 26 27 28 29 33 34 35 36 38 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 64 65 66 67 68 69 71 70 72 73 74 75 76 78 77 79 80 82 83 84 85 86 87 88 89 90 91 92 93 95 96 97 98 99 100 101 102 103 104 105 106]] [:append 158 107] [:append 159 122]], :time 323700863658, :process 908, :index 32816}
+  T3 = {:type :ok, :f :txn, :value [[:append 162 52] [:append 158 108]], :time 323745346741, :process 908, :index 32825}
+
+Then:
+  - T1 < T2, because T1 did not observe T2's append of 122 to 159.
+  - T2 < T3, because T3 appended 108 after T2 appended 107 to 158.
+  - However, T3 < T1, because T3 completed at index 32825, 0.002 seconds before the invocation of T1, at index 32828: a contradiction!

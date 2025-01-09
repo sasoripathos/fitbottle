@@ -1,0 +1,879 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :clock {:valid? true},
+ :stats {:valid? true,
+         :count 11066,
+         :ok-count 8276,
+         :fail-count 2177,
+         :info-count 613,
+         :by-f {:txn {:valid? true,
+                      :count 11066,
+                      :ok-count 8276,
+                      :fail-count 2177,
+                      :info-count 613}}},
+ :exceptions {:valid? true,
+              :exceptions ({:count 1,
+                            :class com.mongodb.MongoSocketReadException,
+                            :example {:type :info,
+                                      :f :txn,
+                                      :value [[:append 25 114]],
+                                      :time 133365945930,
+                                      :process 220,
+                                      :exception {:via [{:type com.mongodb.MongoSocketReadException,
+                                                         :message "Prematurely reached end of stream",
+                                                         :at [com.mongodb.internal.connection.SocketStream
+                                                              read
+                                                              "SocketStream.java"
+                                                              112]}],
+                                                  :trace [[com.mongodb.internal.connection.SocketStream
+                                                           read
+                                                           "SocketStream.java"
+                                                           112]
+                                                          [com.mongodb.internal.connection.SocketStream
+                                                           read
+                                                           "SocketStream.java"
+                                                           135]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveResponseBuffers
+                                                           "InternalStreamConnection.java"
+                                                           713]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveMessageWithAdditionalTimeout
+                                                           "InternalStreamConnection.java"
+                                                           571]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveCommandMessageResponse
+                                                           "InternalStreamConnection.java"
+                                                           410]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           sendAndReceive
+                                                           "InternalStreamConnection.java"
+                                                           337]
+                                                          [com.mongodb.internal.connection.UsageTrackingInternalConnection
+                                                           sendAndReceive
+                                                           "UsageTrackingInternalConnection.java"
+                                                           116]
+                                                          [com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection
+                                                           sendAndReceive
+                                                           "DefaultConnectionPool.java"
+                                                           644]
+                                                          [com.mongodb.internal.connection.CommandProtocolImpl
+                                                           execute
+                                                           "CommandProtocolImpl.java"
+                                                           71]
+                                                          [com.mongodb.internal.connection.DefaultServer$DefaultServerProtocolExecutor
+                                                           execute
+                                                           "DefaultServer.java"
+                                                           240]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           executeProtocol
+                                                           "DefaultServerConnection.java"
+                                                           226]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           command
+                                                           "DefaultServerConnection.java"
+                                                           126]
+                                                          [com.mongodb.internal.connection.DefaultServer$OperationCountTrackingConnection
+                                                           command
+                                                           "DefaultServer.java"
+                                                           354]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           executeCommand
+                                                           "MixedBulkWriteOperation.java"
+                                                           517]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           executeBulkWriteBatch
+                                                           "MixedBulkWriteOperation.java"
+                                                           379]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           lambda$execute$2
+                                                           "MixedBulkWriteOperation.java"
+                                                           300]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           lambda$withSourceAndConnection$2
+                                                           "OperationHelper.java"
+                                                           575]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSuppliedResource
+                                                           "OperationHelper.java"
+                                                           600]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           lambda$withSourceAndConnection$3
+                                                           "OperationHelper.java"
+                                                           574]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSuppliedResource
+                                                           "OperationHelper.java"
+                                                           600]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSourceAndConnection
+                                                           "OperationHelper.java"
+                                                           573]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           lambda$execute$3
+                                                           "MixedBulkWriteOperation.java"
+                                                           272]
+                                                          [com.mongodb.internal.async.function.RetryingSyncSupplier
+                                                           get
+                                                           "RetryingSyncSupplier.java"
+                                                           65]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           execute
+                                                           "MixedBulkWriteOperation.java"
+                                                           308]
+                                                          [com.mongodb.internal.operation.MixedBulkWriteOperation
+                                                           execute
+                                                           "MixedBulkWriteOperation.java"
+                                                           85]
+                                                          [com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor
+                                                           execute
+                                                           "MongoClientDelegate.java"
+                                                           212]
+                                                          [com.mongodb.client.internal.MongoCollectionImpl
+                                                           executeSingleWriteRequest
+                                                           "MongoCollectionImpl.java"
+                                                           1010]
+                                                          [com.mongodb.client.internal.MongoCollectionImpl
+                                                           executeUpdate
+                                                           "MongoCollectionImpl.java"
+                                                           994]
+                                                          [com.mongodb.client.internal.MongoCollectionImpl
+                                                           updateOne
+                                                           "MongoCollectionImpl.java"
+                                                           579]
+                                                          [jdk.internal.reflect.GeneratedMethodAccessor21
+                                                           invoke
+                                                           nil
+                                                           -1]
+                                                          [jdk.internal.reflect.DelegatingMethodAccessorImpl
+                                                           invoke
+                                                           "DelegatingMethodAccessorImpl.java"
+                                                           43]
+                                                          [java.lang.reflect.Method
+                                                           invoke
+                                                           "Method.java"
+                                                           566]
+                                                          [clojure.lang.Reflector
+                                                           invokeMatchingMethod
+                                                           "Reflector.java"
+                                                           167]
+                                                          [clojure.lang.Reflector
+                                                           invokeInstanceMethod
+                                                           "Reflector.java"
+                                                           102]
+                                                          [jepsen.mongodb.list_append$apply_mop_BANG_
+                                                           invokeStatic
+                                                           "list_append.clj"
+                                                           69]
+                                                          [jepsen.mongodb.list_append$apply_mop_BANG_
+                                                           invoke
+                                                           "list_append.clj"
+                                                           51]
+                                                          [jepsen.mongodb.list_append.Client$fn__2242
+                                                           invoke
+                                                           "list_append.clj"
+                                                           122]
+                                                          [clojure.core$binding_conveyor_fn$fn__5739
+                                                           invoke
+                                                           "core.clj"
+                                                           2030]
+                                                          [clojure.lang.AFn
+                                                           call
+                                                           "AFn.java"
+                                                           18]
+                                                          [java.util.concurrent.FutureTask
+                                                           run
+                                                           "FutureTask.java"
+                                                           264]
+                                                          [java.util.concurrent.ThreadPoolExecutor
+                                                           runWorker
+                                                           "ThreadPoolExecutor.java"
+                                                           1128]
+                                                          [java.util.concurrent.ThreadPoolExecutor$Worker
+                                                           run
+                                                           "ThreadPoolExecutor.java"
+                                                           628]
+                                                          [java.lang.Thread
+                                                           run
+                                                           "Thread.java"
+                                                           829]],
+                                                  :cause "Prematurely reached end of stream"},
+                                      :error "indeterminate: Prematurely reached end of stream",
+                                      :index 7036}})},
+ :workload {:valid? false,
+            :anomaly-types (:G-single-realtime),
+            :anomalies {:G-single-realtime [{:cycle [{:type :ok,
+                                                      :f :txn,
+                                                      :value [[:r
+                                                               50
+                                                               [1
+                                                                2
+                                                                3
+                                                                4
+                                                                5
+                                                                6
+                                                                7
+                                                                8
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                13
+                                                                14
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                21
+                                                                20
+                                                                22
+                                                                24
+                                                                25
+                                                                23
+                                                                26
+                                                                27
+                                                                28
+                                                                29
+                                                                30
+                                                                31
+                                                                32
+                                                                33
+                                                                34
+                                                                35
+                                                                38
+                                                                36
+                                                                37
+                                                                39
+                                                                40
+                                                                41
+                                                                42
+                                                                43
+                                                                44
+                                                                45
+                                                                46
+                                                                47
+                                                                48
+                                                                49
+                                                                50
+                                                                52
+                                                                51
+                                                                53
+                                                                54
+                                                                55
+                                                                56
+                                                                57
+                                                                58
+                                                                59
+                                                                60
+                                                                61
+                                                                62
+                                                                63
+                                                                64
+                                                                65
+                                                                66
+                                                                67
+                                                                68
+                                                                69
+                                                                70
+                                                                71
+                                                                72
+                                                                73
+                                                                74
+                                                                75
+                                                                76
+                                                                77]]],
+                                                      :time 204713438134,
+                                                      :process 234,
+                                                      :index 9521}
+                                                     {:type :ok,
+                                                      :f :txn,
+                                                      :value [[:r
+                                                               41
+                                                               [56
+                                                                57
+                                                                58
+                                                                59
+                                                                61
+                                                                60
+                                                                62
+                                                                63
+                                                                64
+                                                                65
+                                                                66
+                                                                67
+                                                                68
+                                                                69
+                                                                70
+                                                                71
+                                                                72
+                                                                74
+                                                                76
+                                                                77
+                                                                78
+                                                                79
+                                                                81
+                                                                82
+                                                                80
+                                                                83
+                                                                84
+                                                                85
+                                                                86
+                                                                87
+                                                                88
+                                                                89
+                                                                90]]
+                                                              [:r
+                                                               51
+                                                               [2
+                                                                3
+                                                                1
+                                                                4
+                                                                5
+                                                                6
+                                                                8
+                                                                7
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                14
+                                                                13
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                20
+                                                                21
+                                                                25
+                                                                26
+                                                                27
+                                                                28
+                                                                29
+                                                                31
+                                                                32
+                                                                34
+                                                                35
+                                                                36
+                                                                37
+                                                                38
+                                                                39
+                                                                40
+                                                                41]]
+                                                              [:append
+                                                               51
+                                                               44]
+                                                              [:append
+                                                               50
+                                                               78]],
+                                                      :time 204709613880,
+                                                      :process 235,
+                                                      :index 9517}
+                                                     {:type :ok,
+                                                      :f :txn,
+                                                      :value [[:r
+                                                               50
+                                                               [1
+                                                                2
+                                                                3
+                                                                4
+                                                                5
+                                                                6
+                                                                7
+                                                                8
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                13
+                                                                14
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                21
+                                                                20
+                                                                22
+                                                                24
+                                                                25
+                                                                23
+                                                                26
+                                                                27
+                                                                28
+                                                                29
+                                                                30
+                                                                31
+                                                                32
+                                                                33
+                                                                34
+                                                                35
+                                                                38
+                                                                36
+                                                                37
+                                                                39
+                                                                40
+                                                                41
+                                                                42
+                                                                43
+                                                                44
+                                                                45
+                                                                46
+                                                                47
+                                                                48
+                                                                49
+                                                                50
+                                                                52
+                                                                51
+                                                                53
+                                                                54
+                                                                55
+                                                                56
+                                                                57
+                                                                58
+                                                                59
+                                                                60
+                                                                61
+                                                                62
+                                                                63
+                                                                64
+                                                                65
+                                                                66
+                                                                67
+                                                                68
+                                                                69
+                                                                70
+                                                                71
+                                                                72
+                                                                73
+                                                                74
+                                                                75
+                                                                76
+                                                                77]]],
+                                                      :time 204713438134,
+                                                      :process 234,
+                                                      :index 9521}],
+                                             :steps ({:type :rw,
+                                                      :key 50,
+                                                      :value 77,
+                                                      :value' 78,
+                                                      :a-mop-index 0,
+                                                      :b-mop-index 3}
+                                                     {:type :realtime,
+                                                      :a' {:type :ok,
+                                                           :f :txn,
+                                                           :value [[:r
+                                                                    41
+                                                                    [56
+                                                                     57
+                                                                     58
+                                                                     59
+                                                                     61
+                                                                     60
+                                                                     62
+                                                                     63
+                                                                     64
+                                                                     65
+                                                                     66
+                                                                     67
+                                                                     68
+                                                                     69
+                                                                     70
+                                                                     71
+                                                                     72
+                                                                     74
+                                                                     76
+                                                                     77
+                                                                     78
+                                                                     79
+                                                                     81
+                                                                     82
+                                                                     80
+                                                                     83
+                                                                     84
+                                                                     85
+                                                                     86
+                                                                     87
+                                                                     88
+                                                                     89
+                                                                     90]]
+                                                                   [:r
+                                                                    51
+                                                                    [2
+                                                                     3
+                                                                     1
+                                                                     4
+                                                                     5
+                                                                     6
+                                                                     8
+                                                                     7
+                                                                     9
+                                                                     10
+                                                                     11
+                                                                     12
+                                                                     14
+                                                                     13
+                                                                     15
+                                                                     16
+                                                                     17
+                                                                     18
+                                                                     19
+                                                                     20
+                                                                     21
+                                                                     25
+                                                                     26
+                                                                     27
+                                                                     28
+                                                                     29
+                                                                     31
+                                                                     32
+                                                                     34
+                                                                     35
+                                                                     36
+                                                                     37
+                                                                     38
+                                                                     39
+                                                                     40
+                                                                     41]]
+                                                                   [:append
+                                                                    51
+                                                                    44]
+                                                                   [:append
+                                                                    50
+                                                                    78]],
+                                                           :time 204709613880,
+                                                           :process 235,
+                                                           :index 9517},
+                                                      :b {:type :invoke,
+                                                          :f :txn,
+                                                          :value [[:r
+                                                                   50
+                                                                   nil]],
+                                                          :time 204711459770,
+                                                          :process 234,
+                                                          :index 9520}}),
+                                             :type :G-single-realtime}
+                                            {:cycle [{:type :ok,
+                                                      :f :txn,
+                                                      :value [[:r
+                                                               51
+                                                               [2
+                                                                3
+                                                                1
+                                                                4
+                                                                5
+                                                                6
+                                                                8
+                                                                7
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                14
+                                                                13
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                20
+                                                                21
+                                                                25
+                                                                26
+                                                                27
+                                                                28
+                                                                29]]],
+                                                      :time 204435593638,
+                                                      :process 259,
+                                                      :index 9481}
+                                                     {:type :ok,
+                                                      :f :txn,
+                                                      :value [[:r
+                                                               50
+                                                               [1
+                                                                2
+                                                                3
+                                                                4
+                                                                5
+                                                                6
+                                                                7
+                                                                8
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                13
+                                                                14
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                21
+                                                                20
+                                                                22
+                                                                24
+                                                                25
+                                                                23
+                                                                26
+                                                                27
+                                                                28
+                                                                29
+                                                                30
+                                                                31
+                                                                32
+                                                                33
+                                                                34
+                                                                35
+                                                                38
+                                                                36
+                                                                37
+                                                                39
+                                                                40
+                                                                41
+                                                                42
+                                                                43
+                                                                44
+                                                                45
+                                                                46
+                                                                47
+                                                                48
+                                                                49
+                                                                50
+                                                                52
+                                                                51
+                                                                53
+                                                                54
+                                                                55
+                                                                56
+                                                                57
+                                                                58
+                                                                59
+                                                                60
+                                                                61
+                                                                62
+                                                                63
+                                                                64
+                                                                65
+                                                                66
+                                                                67
+                                                                68
+                                                                69
+                                                                70
+                                                                71
+                                                                72
+                                                                73
+                                                                74
+                                                                75]]
+                                                              [:append
+                                                               36
+                                                               78]
+                                                              [:append
+                                                               51
+                                                               31]
+                                                              [:r
+                                                               51
+                                                               [2
+                                                                3
+                                                                1
+                                                                4
+                                                                5
+                                                                6
+                                                                8
+                                                                7
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                14
+                                                                13
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                20
+                                                                21
+                                                                25
+                                                                26
+                                                                27
+                                                                28
+                                                                29
+                                                                31]]],
+                                                      :time 204429212590,
+                                                      :process 225,
+                                                      :index 9477}
+                                                     {:type :ok,
+                                                      :f :txn,
+                                                      :value [[:r
+                                                               51
+                                                               [2
+                                                                3
+                                                                1
+                                                                4
+                                                                5
+                                                                6
+                                                                8
+                                                                7
+                                                                9
+                                                                10
+                                                                11
+                                                                12
+                                                                14
+                                                                13
+                                                                15
+                                                                16
+                                                                17
+                                                                18
+                                                                19
+                                                                20
+                                                                21
+                                                                25
+                                                                26
+                                                                27
+                                                                28
+                                                                29]]],
+                                                      :time 204435593638,
+                                                      :process 259,
+                                                      :index 9481}],
+                                             :steps ({:type :rw,
+                                                      :key 51,
+                                                      :value 29,
+                                                      :value' 31,
+                                                      :a-mop-index 0,
+                                                      :b-mop-index 2}
+                                                     {:type :realtime,
+                                                      :a' {:type :ok,
+                                                           :f :txn,
+                                                           :value [[:r
+                                                                    50
+                                                                    [1
+                                                                     2
+                                                                     3
+                                                                     4
+                                                                     5
+                                                                     6
+                                                                     7
+                                                                     8
+                                                                     9
+                                                                     10
+                                                                     11
+                                                                     12
+                                                                     13
+                                                                     14
+                                                                     15
+                                                                     16
+                                                                     17
+                                                                     18
+                                                                     19
+                                                                     21
+                                                                     20
+                                                                     22
+                                                                     24
+                                                                     25
+                                                                     23
+                                                                     26
+                                                                     27
+                                                                     28
+                                                                     29
+                                                                     30
+                                                                     31
+                                                                     32
+                                                                     33
+                                                                     34
+                                                                     35
+                                                                     38
+                                                                     36
+                                                                     37
+                                                                     39
+                                                                     40
+                                                                     41
+                                                                     42
+                                                                     43
+                                                                     44
+                                                                     45
+                                                                     46
+                                                                     47
+                                                                     48
+                                                                     49
+                                                                     50
+                                                                     52
+                                                                     51
+                                                                     53
+                                                                     54
+                                                                     55
+                                                                     56
+                                                                     57
+                                                                     58
+                                                                     59
+                                                                     60
+                                                                     61
+                                                                     62
+                                                                     63
+                                                                     64
+                                                                     65
+                                                                     66
+                                                                     67
+                                                                     68
+                                                                     69
+                                                                     70
+                                                                     71
+                                                                     72
+                                                                     73
+                                                                     74
+                                                                     75]]
+                                                                   [:append
+                                                                    36
+                                                                    78]
+                                                                   [:append
+                                                                    51
+                                                                    31]
+                                                                   [:r
+                                                                    51
+                                                                    [2
+                                                                     3
+                                                                     1
+                                                                     4
+                                                                     5
+                                                                     6
+                                                                     8
+                                                                     7
+                                                                     9
+                                                                     10
+                                                                     11
+                                                                     12
+                                                                     14
+                                                                     13
+                                                                     15
+                                                                     16
+                                                                     17
+                                                                     18
+                                                                     19
+                                                                     20
+                                                                     21
+                                                                     25
+                                                                     26
+                                                                     27
+                                                                     28
+                                                                     29
+                                                                     31]]],
+                                                           :time 204429212590,
+                                                           :process 225,
+                                                           :index 9477},
+                                                      :b {:type :invoke,
+                                                          :f :txn,
+                                                          :value [[:r
+                                                                   51
+                                                                   nil]],
+                                                          :time 204432010495,
+                                                          :process 259,
+                                                          :index 9480}}),
+                                             :type :G-single-realtime}]},
+            :not #{:repeatable-read :strong-snapshot-isolation},
+            :also-not #{:serializable
+                        :strong-serializable
+                        :strong-session-serializable}},
+ :assert {:valid? true, :count 0, :matches ()},
+ :valid? false}

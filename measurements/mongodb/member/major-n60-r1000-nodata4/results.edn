@@ -1,0 +1,220 @@
+{:perf {:latency-graph {:valid? true},
+        :rate-graph {:valid? true},
+        :valid? true},
+ :clock {:valid? true},
+ :stats {:valid? true,
+         :count 11290,
+         :ok-count 8396,
+         :fail-count 2339,
+         :info-count 555,
+         :by-f {:txn {:valid? true,
+                      :count 11290,
+                      :ok-count 8396,
+                      :fail-count 2339,
+                      :info-count 555}}},
+ :exceptions {:valid? true,
+              :exceptions ({:count 1,
+                            :class com.mongodb.MongoSocketReadException,
+                            :example {:type :info,
+                                      :f :txn,
+                                      :value [[:r 78 nil]],
+                                      :time 253098322009,
+                                      :process 195,
+                                      :exception {:via [{:type com.mongodb.MongoSocketReadException,
+                                                         :message "Exception receiving message",
+                                                         :at [com.mongodb.internal.connection.InternalStreamConnection
+                                                              translateReadException
+                                                              "InternalStreamConnection.java"
+                                                              702]}
+                                                        {:type java.net.SocketException,
+                                                         :message "Connection reset",
+                                                         :at [java.net.SocketInputStream
+                                                              read
+                                                              "SocketInputStream.java"
+                                                              186]}],
+                                                  :trace [[java.net.SocketInputStream
+                                                           read
+                                                           "SocketInputStream.java"
+                                                           186]
+                                                          [java.net.SocketInputStream
+                                                           read
+                                                           "SocketInputStream.java"
+                                                           140]
+                                                          [com.mongodb.internal.connection.SocketStream
+                                                           read
+                                                           "SocketStream.java"
+                                                           110]
+                                                          [com.mongodb.internal.connection.SocketStream
+                                                           read
+                                                           "SocketStream.java"
+                                                           135]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveResponseBuffers
+                                                           "InternalStreamConnection.java"
+                                                           713]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveMessageWithAdditionalTimeout
+                                                           "InternalStreamConnection.java"
+                                                           571]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           receiveCommandMessageResponse
+                                                           "InternalStreamConnection.java"
+                                                           410]
+                                                          [com.mongodb.internal.connection.InternalStreamConnection
+                                                           sendAndReceive
+                                                           "InternalStreamConnection.java"
+                                                           337]
+                                                          [com.mongodb.internal.connection.UsageTrackingInternalConnection
+                                                           sendAndReceive
+                                                           "UsageTrackingInternalConnection.java"
+                                                           116]
+                                                          [com.mongodb.internal.connection.DefaultConnectionPool$PooledConnection
+                                                           sendAndReceive
+                                                           "DefaultConnectionPool.java"
+                                                           644]
+                                                          [com.mongodb.internal.connection.CommandProtocolImpl
+                                                           execute
+                                                           "CommandProtocolImpl.java"
+                                                           71]
+                                                          [com.mongodb.internal.connection.DefaultServer$DefaultServerProtocolExecutor
+                                                           execute
+                                                           "DefaultServer.java"
+                                                           240]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           executeProtocol
+                                                           "DefaultServerConnection.java"
+                                                           226]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           command
+                                                           "DefaultServerConnection.java"
+                                                           126]
+                                                          [com.mongodb.internal.connection.DefaultServerConnection
+                                                           command
+                                                           "DefaultServerConnection.java"
+                                                           116]
+                                                          [com.mongodb.internal.connection.DefaultServer$OperationCountTrackingConnection
+                                                           command
+                                                           "DefaultServer.java"
+                                                           345]
+                                                          [com.mongodb.internal.operation.CommandOperationHelper
+                                                           createReadCommandAndExecute
+                                                           "CommandOperationHelper.java"
+                                                           232]
+                                                          [com.mongodb.internal.operation.FindOperation
+                                                           lambda$execute$1
+                                                           "FindOperation.java"
+                                                           695]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           lambda$withSourceAndConnection$2
+                                                           "OperationHelper.java"
+                                                           575]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSuppliedResource
+                                                           "OperationHelper.java"
+                                                           600]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           lambda$withSourceAndConnection$3
+                                                           "OperationHelper.java"
+                                                           574]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSuppliedResource
+                                                           "OperationHelper.java"
+                                                           600]
+                                                          [com.mongodb.internal.operation.OperationHelper
+                                                           withSourceAndConnection
+                                                           "OperationHelper.java"
+                                                           573]
+                                                          [com.mongodb.internal.operation.FindOperation
+                                                           lambda$execute$2
+                                                           "FindOperation.java"
+                                                           690]
+                                                          [com.mongodb.internal.async.function.RetryingSyncSupplier
+                                                           get
+                                                           "RetryingSyncSupplier.java"
+                                                           65]
+                                                          [com.mongodb.internal.operation.FindOperation
+                                                           execute
+                                                           "FindOperation.java"
+                                                           722]
+                                                          [com.mongodb.internal.operation.FindOperation
+                                                           execute
+                                                           "FindOperation.java"
+                                                           86]
+                                                          [com.mongodb.client.internal.MongoClientDelegate$DelegateOperationExecutor
+                                                           execute
+                                                           "MongoClientDelegate.java"
+                                                           191]
+                                                          [com.mongodb.client.internal.FindIterableImpl
+                                                           first
+                                                           "FindIterableImpl.java"
+                                                           213]
+                                                          [jdk.internal.reflect.GeneratedMethodAccessor16
+                                                           invoke
+                                                           nil
+                                                           -1]
+                                                          [jdk.internal.reflect.DelegatingMethodAccessorImpl
+                                                           invoke
+                                                           "DelegatingMethodAccessorImpl.java"
+                                                           43]
+                                                          [java.lang.reflect.Method
+                                                           invoke
+                                                           "Method.java"
+                                                           566]
+                                                          [clojure.lang.Reflector
+                                                           invokeMatchingMethod
+                                                           "Reflector.java"
+                                                           167]
+                                                          [clojure.lang.Reflector
+                                                           invokeNoArgInstanceMember
+                                                           "Reflector.java"
+                                                           438]
+                                                          [jepsen.mongodb.client$find_one
+                                                           invokeStatic
+                                                           "client.clj"
+                                                           361]
+                                                          [jepsen.mongodb.client$find_one
+                                                           invoke
+                                                           "client.clj"
+                                                           354]
+                                                          [jepsen.mongodb.list_append$apply_mop_BANG_
+                                                           invokeStatic
+                                                           "list_append.clj"
+                                                           63]
+                                                          [jepsen.mongodb.list_append$apply_mop_BANG_
+                                                           invoke
+                                                           "list_append.clj"
+                                                           51]
+                                                          [jepsen.mongodb.list_append.Client$fn__2242
+                                                           invoke
+                                                           "list_append.clj"
+                                                           122]
+                                                          [clojure.core$binding_conveyor_fn$fn__5739
+                                                           invoke
+                                                           "core.clj"
+                                                           2030]
+                                                          [clojure.lang.AFn
+                                                           call
+                                                           "AFn.java"
+                                                           18]
+                                                          [java.util.concurrent.FutureTask
+                                                           run
+                                                           "FutureTask.java"
+                                                           264]
+                                                          [java.util.concurrent.ThreadPoolExecutor
+                                                           runWorker
+                                                           "ThreadPoolExecutor.java"
+                                                           1128]
+                                                          [java.util.concurrent.ThreadPoolExecutor$Worker
+                                                           run
+                                                           "ThreadPoolExecutor.java"
+                                                           628]
+                                                          [java.lang.Thread
+                                                           run
+                                                           "Thread.java"
+                                                           829]],
+                                                  :cause "Connection reset"},
+                                      :error "indeterminate: Connection reset",
+                                      :index 14922}})},
+ :workload {:valid? true},
+ :assert {:valid? true, :count 0, :matches ()},
+ :valid? true}
