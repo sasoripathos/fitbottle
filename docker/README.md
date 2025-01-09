@@ -1,6 +1,6 @@
 # Dockerized Jepsen with Vagrant
 
-Note: I (Dylan) made a few changes to '/bin/up' to make it convenient to run locally with docker. This likely needs a few minor adjustments to work now.
+NOTE: This is the same environement as in [this project](https://github.com/dsfuzz/mallory). Huge thanks to all contributors!
 
 This folder contains `Vagrantfile` that spins up a Debian virtual machine which
 runs a containerized version of a Jepsen environment, consisting of one
